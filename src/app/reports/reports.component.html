@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+   <title>Ticket's Report</title>
+</head>
+
+<body>
+  <div class="container">
+       
+    <h2 class="heading">Ticket's Report</h2>
+    <br>  
+
+    <div class="search-filter-container">
+   
+      <div class="search-container">
+        <i class="fa fa-search"></i>
+
+           <input id="myInput" type="text" placeholder="Search ..." class="form-control" [(ngModel)]="inputValue" (keyup)="filterTable()">
+      </div>          <select class="status-filter" [(ngModel)]="selectedStatus" (change)="filterByStatus()">
+        <option value="">Filter by Status</option>
+        <option value="">Show All</option>
+        <option *ngFor="let status of statusOptions" [value]="status">{{ status }}</option>
+      </select>
+    </div><br><br> 
+    <div class="table-container">
+      <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th  class="product-details">Ticket Id</th>
+            <th  class="product-details">Distributor Name</th>
+            <th class="product-details">Contact Person Name</th>
+            <th class="product-details">Email  </th>
+            <th class="product-details">Mobile</th>
+            <th class="description">Description</th>
+            <th class="product-details">Currently Owned by </th>
+            <th class="product-details">Created At</th>
+            <th class="product-details">Status</th>
+            <th colspan="2" class="product-details">Action</th> <!-- Add a new column for the action button -->
+            <th class="product-details"(click)="exportToExcel()">        <i class="fa-solid fa-file-excel" style="font-size: 26px;"></i>
+
+          </tr>
+        </thead>
+        <tbody id="myTable" class="table-body">
+          <tr *ngFor="let ticket of tickets">
+           
+            <td style="text-decoration: underline; font-weight: bold;" (click)="openTicketDetails(ticket.ticket_id)">{{ ticket.ticket_id }}</td>
+            <td>{{ ticket.first_name }}</td>
+            <td>{{ ticket.last_name }}</td>
+            <td>{{ ticket.email }}</td>
+            <td>{{ ticket.mobile }}</td>
+            <td (click)="openDescriptionPopup(ticket.description)">View Description</td>
+
+            <td>{{ ticket.updated_by.replace(' None', '') }}</td>
+                        <td>{{ ticket.created_at }}</td>
+            <td>{{ ticket.status }}</td>
+          
+            <td>
+              <button class="edit" (click)="openEditPopup(ticket)">Update Status</button>
+            </td>
+            <td>
+              <button class="edit" (click)="openComments(ticket.ticket_id)">View Comments</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div id="description-popup" *ngIf="isPopupOpen" class="description-popup">
+        <div class="popup-content">
+          <span (click)="closeDescriptionPopup()" class="close-button">&times;</span>
+          <h2>Description</h2>
+          <p class="description-text">{{ selectedDescription }}</p>
+        </div>
+      </div>
+      
+      
+      <div id="popupOverlay" *ngIf="popupVisible">
+        <div class="popup-content">
+          <table class="table popup-table">
+            <thead>
+              <tr>
+                <th>Comments</th>
+                <th>Commented At</th>
+                <th>Commented By</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let comment of ticketDetails.comments">
+                <td>{{ comment.comment || 'No Comment' }}</td>
+                <td>{{ comment.commented_at }}</td>
+                <td>{{ comment.created_by.replace(' None', '') }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="button-group">
+            <button type="button" class="btn btn-black" (click)="closePopup()">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+ <!-- Add the following code inside your HTML file -->
+ <div id="editPopup" class="modal">
+  
+  <div class="modal-content">
+  
+    <form (ngSubmit)=" saveTicketAndCommentStatus()">
+      
+      <div class="form-group">
+        <label for="status">Status:</label>
+        <select name="status" id="status" class="status-select" [(ngModel)]="editedTicket.status">
+          <option *ngFor="let status of statusOptions" [value]="status">{{ status }}</option>
+        </select>
+        
+      </div>
+      <div class="form-group">
+        <label for="comments">Comments: </label>
+        <input type="comments" name="comments" [(ngModel)]="editedTicket.comments">
+    </div>
+  
+
+
+
+      <div class="button-group">
+        <button type="submit" class="btn btn-black">Save</button>
+        <button type="button" class="btn btn-black" (click)="closeEditPopup()">Cancel</button>
+
+       
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+  </div>
+<app-navbar></app-navbar>
+    </body></html>

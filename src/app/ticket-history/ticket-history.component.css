@@ -1,0 +1,995 @@
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins';
+  
+}
+body{
+
+        background-color: #ffffff;
+        height: 100vh;
+        overflow: hidden;
+
+}
+h2 {
+  font-family: 'Poppins';
+  color: #ed1b24;
+  font-size: 30px;
+}
+.heading {
+  text-align: center; /* Center align the content */
+}
+
+.search-filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative; /* Add this line */
+}
+
+.status {
+  position: absolute;
+  right: 5%;
+}
+
+.status-filter {
+  padding: 6px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+  width: auto;
+  top: 0;
+  margin-right: 50px;
+  
+}
+
+.label {
+  display: block;
+  font-weight: bold;
+ 
+
+  color: #fcf7f7; /* Text color */
+}
+
+
+.status-filter:focus {
+  border-color: #007bff; /* Focus color */
+}
+
+.search-container {
+  position: relative;
+  width: auto;
+  border: 1px solid #231F20;
+
+  left: 50%;
+  transform: translate(-50%, 30%);
+}
+
+.button-group {
+  text-align: center; /* Center align the buttons */
+  margin-top: 10px;
+  bottom: 0;
+}
+ 
+.search-container svg {
+  position: absolute;
+  margin-left: 2%;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: rgb(70, 68, 68);/* Set fill color for SVG */
+}
+
+.search-container i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: black;
+}
+input[type="text"] {
+  flex: 1;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+  font-size: 16px;
+  width: 500px;
+  font-family: 'Poppins';
+
+}
+
+
+.container {
+  height: 90vh;
+  width: 95vw;
+  border-radius: 10px;
+  position: fixed;
+  box-shadow: 4px 4px 9px 16px rgba(255, 255, 255, 0.1);
+  top: calc(50% + 30px); /* Assuming the height of your navbar is 45px */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+/* Hide the scrollbar track */
+.table-container::-webkit-scrollbar {
+  width: 5px; /* Set the width of the scrollbar */
+  border-radius: 15px; /* Set the border radius of the scrollbar thumb */
+
+}
+
+/* Style the scrollbar thumb */
+.table-container::-webkit-scrollbar-thumb {
+  background-color: #888; /* Set the color of the scrollbar thumb */
+  border-radius: 15px; /* Set the border radius of the scrollbar thumb */
+}
+
+/* Style the scrollbar track */
+.table-container::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Set the color of the scrollbar track */
+}
+
+
+thead {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+ 
+}
+     
+       th{
+           padding: 8px;
+           text-align:center;
+           border-bottom: 1px solid #ddd; /* Add bottom border for each row */
+       }
+       
+       th.company-details {
+        border-right: 1px solid #ddd; /* Add right border for the "Company Details" heading */
+    }
+
+    th.product-details {
+        border-left: 1px solid #ddd; /* Add left border for the "Product Details" heading */
+        border-right: 1px solid #ddd; /* Add right border for the "Company Details" heading */
+    }
+.table-container {
+  height: 70vh; /* Adjust height as needed */
+ 
+  overflow-y: auto; /* Add overflow-y: auto to enable vertical scrollbar */
+  position: relative;
+
+
+}
+
+
+table {
+  font-family: 'Poppins';
+  border-collapse: collapse;
+  width: 98%; /* Adjusted width to account for padding */
+  margin-left: 15px;
+  background-color: #ed1b24;
+  
+}
+.table-body{
+  overflow-y: auto;
+}
+td{
+  text-align:center;
+  padding: 5px;
+  color: #fff;
+ 
+
+  
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  background-color: transparent; /* Make the thead transparent */
+  z-index: 2; /* Ensure the thead stays above the background */
+}
+
+
+
+
+
+
+th {
+  text-align:center;
+  padding: 8px;
+  background-color: rgb(35, 31, 32);
+  color: #fff;
+
+}
+
+
+table tr:hover {
+  background-color: rgb(35, 31, 32); 
+  cursor: pointer; /* Change cursor on hover */
+  color:#fff;
+}
+.edit{
+  background-color:#fff;
+  flex: 1;
+        padding: 4px;
+        
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 5px;
+        margin-left: 5px;
+        font-size: 14px;
+        width: 60px;
+        font-family: 'Poppins';
+}
+
+/* Modal container */
+#editPopup {
+  display: none; /* Hide the modal by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+} 
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 100%;
+  max-width: 50vw;
+  color: black;
+
+}
+.modal1 {
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  position: fixed; /* Position it fixed to the viewport */
+  top: 0; /* Start from the top */
+  left: 0; /* Start from the left */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 1000; /* Ensure it appears above other content */
+}
+
+/* Modal content styles */
+.modal-content1 {
+  background-color: #fefefe; /* Background color */
+  padding: 20px; /* Inner padding */
+  border: 1px solid #888; /* Border */
+  width: 90%; /* Full width */
+  max-width: 500px; /* Maximum width */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  border-radius: 5px; /* Optional rounded corners */
+  color: black; /* Text color */
+  margin: auto; /* Center horizontally */
+  max-height: 90vh; /* Maximum height */
+  overflow-y: auto; /* Add scrollbar if necessary */
+}
+
+.close {
+  color: black;
+  font-size: 28px;
+  font-weight: bold;
+ float: right;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Input fields */
+
+
+input[type="comments"],.status-select 
+ {
+  width: 75%; /* Adjust the width as needed */
+   /* Adjust the padding as needed */
+  font-size: 14px; /* Adjust the font size as needed */
+  border: 1px solid #ced4da; /* Adjust the border color as needed */
+  border-radius: 0.25rem; /* Adjust the border radius as needed */
+  font-family: 'Poppins';
+  margin-bottom: 20px;
+  margin-top: 10px;
+
+}
+
+/* Style for the option elements within the select */
+.status-select option {
+  padding: 1rem; /* Adjust the padding as needed */
+}
+.btn-black {
+  background-color: #000000; /* Black background */
+  color: #ffffff; /* White text color */
+  padding: 5px 10px; /* Adjust padding as needed */
+  border: none;
+  border-radius: 5px;
+  margin: 10px; /* Adjust margin as needed */
+  margin-bottom: 0;
+}
+.btn-black:hover {
+  background-color: #000000; /* Black background */
+  color: #ffffff; /* White text color */
+  /* Add any additional styling as needed */
+}
+
+label {
+  display: inline-block;
+  width: 20%; /* Adjust the width as needed */
+  font-weight: bold;
+  margin-top: 10px;
+  font-family: 'Poppins';
+
+}
+/* Adjustments for smaller screens */
+@media screen and (max-width: 1280px) {
+
+  .form-wrapper {
+    padding-bottom: 0px; /* Adjust the value based on the height of your submit button */
+  }
+  .modal-content-popup {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    color: black;
+  
+  }
+  .modal-content1-popup {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    color: black;
+  
+  }
+  
+  .container {
+    max-width: 90vw;
+    height: auto;
+    width: auto;
+    border-radius: 10px;
+    position: fixed;
+    box-shadow: 4px 4px 9px 16px rgba(255, 255, 255, 0.1);
+  
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow-y: hidden;
+    min-width: 95vw; 
+    overflow-x: hidden;
+    min-height: 500px;
+
+  }
+  .table-container {
+    max-height: 65vh; /* Adjust height as needed */
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+  
+  
+  table {
+    font-family: 'Poppins';
+    border-collapse: collapse;
+    width: 98%; /* Adjusted width to account for padding */
+    margin-left: 1%; /* Adjusted margin-left */
+    overflow-y: auto;
+    font-size: 12px;
+  }
+  .modal-content {
+    background-color: #fefefe;
+    margin: 50% auto;
+    
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 500px;
+    color: black;
+    font-size: 12px; 
+  
+  }
+  .modal-content1 {
+    background-color: #fefefe;
+    
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%;
+    max-width: 500px;
+    color: black;
+    font-size: 10px;
+    max-height: 80vh;
+  
+  
+  } 
+  input[type="comments"],.status-select 
+  {
+   width: 75%; /* Adjust the width as needed */
+    /* Adjust the padding as needed */
+   font-size: 14px; /* Adjust the font size as needed */
+   border: 1px solid #ced4da; /* Adjust the border color as needed */
+   border-radius: 0.25rem; /* Adjust the border radius as needed */
+   font-family: 'Poppins';
+   margin-bottom: 20px;
+   margin-top: 10px;
+ 
+ }
+
+  input[type="text"] {
+    flex: 1;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  
+    font-size: 12px;
+    width: 200px;
+    font-family: 'Poppins';
+    padding-left: 50px;
+  
+  }
+  .status-filter {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    transform: translate(-0%, -0%);
+    width: auto;
+    font-size: 12px;
+    margin-right: 10px;
+    
+  }
+  .edit{
+    background-color:#fff;
+    flex: 1;
+          padding: 4px;
+          
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          margin-right: 5px;
+          margin-left: 5px;
+          font-size: 10px;
+          width: 110px;
+          font-family: 'Poppins';
+          font-size: 12px;
+  }
+  h2 {
+    font-family: 'Poppins';
+    color: #ffffff;
+    font-size: 25px;
+  }
+  
+}
+
+@media screen and (max-width: 360px) {
+
+  input[type="text"] {
+    flex: 1;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  
+    font-size: 12px;
+    width: 120px;
+    font-family: 'Poppins';
+    padding-left: 50px;
+  
+  }
+  .status-filter {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    transform: translate(-0%, -0%);
+    width: 100px;
+    font-size: 12px;
+    
+  }
+  h2 {
+    font-family: 'Poppins';
+    color: #ffffff;
+    font-size: 20px;
+  }
+  table {
+    font-family: 'Poppins';
+    border-collapse: collapse;
+    width: 98%; /* Adjusted width to account for padding */
+    margin-left: 1%; /* Adjusted margin-left */
+    overflow-y: auto;
+    font-size: 10px;
+  }
+
+
+.edit{
+  background-color:#fff;
+  flex: 1;
+        padding: 4px;
+        
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 5px;
+        margin-left: 5px;
+        font-size: 10px;
+        width: 110px;
+        font-family: 'Poppins';
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 50% auto;
+  
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90%;
+  max-width: 500px;
+  color: black;
+  font-size: 10px;
+
+
+}
+input[type="comments"],.status-select 
+ {
+  width: 75%; /* Adjust the width as needed */
+  /* Adjust the padding as needed */
+  padding-left: 5px;
+  font-size: 10px; /* Adjust the font size as needed */
+  border: 1px solid #ced4da; /* Adjust the border color as needed */
+  border-radius: 0.25rem; /* Adjust the border radius as needed */
+  font-family: 'Poppins';
+  margin-bottom: 20px;
+  margin-top: 10px;
+
+}
+}
+@media screen and (max-width: 430px) {
+
+  .modal-content-popup {
+    background-color: #fefefe;
+    
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%;
+    min-width: 50vw;
+    color: black;
+  
+  }
+  .modal-content1-popup {
+    background-color: #fefefe;
+    
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%;
+    min-width: 50vw;
+    color: black;
+  
+  }
+  
+  
+.popup-table tbody td{
+
+  color: #000000;
+ }
+ .popup-table thead th{
+ 
+   color: #ffffff;
+   text-align: center;
+   align-items: center;
+   justify-content: space-between;
+   
+ }
+  
+ 
+ .popup-table tbody tr:hover {
+   background-color: rgb(35, 31, 32);
+ }
+ 
+ .popup-table tbody tr:hover td {
+   color: #fff9f9;
+ }
+ #popup {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: auto;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+  .status {
+    position: absolute;
+    right: 0%;
+  }
+  
+  .status-filter {
+    padding: 4px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    width:80px;
+    top: 0;
+   
+    
+  }
+  
+  .label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0;
+   margin-top: 0;
+   padding-top: 0;
+   font-size: 12px;
+    color: #fcf7f7; /* Text color */
+  }
+  
+  
+  .status-filter:focus {
+    border-color: #007bff; /* Focus color */
+  }
+  
+ 
+  input[type="text"] {
+    flex: 1;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  
+    font-size: 12px;
+    width: 120px;
+    font-family: 'Poppins';
+    padding-left: 50px;
+  
+  }
+
+  h2 {
+    font-family: 'Poppins';
+    color: #ffffff;
+    font-size: 20px;
+  }
+  table {
+    font-family: 'Poppins';
+    border-collapse: collapse;
+    width: 98%; /* Adjusted width to account for padding */
+    margin-left: 1%; /* Adjusted margin-left */
+    overflow-y: auto;
+    font-size: 10px;
+  }
+
+
+.edit{
+  background-color:#fff;
+  flex: 1;
+        padding: 4px;
+        
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 5px;
+        margin-left: 5px;
+        font-size: 10px;
+        width: 110px;
+        font-family: 'Poppins';
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 50% auto;
+  
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90%;
+  max-width: 500px;
+  color: black;
+  font-size: 10px;
+
+
+}
+.modal-content1 {
+  background-color: #fefefe;
+  
+  padding: 20px;
+  border: 1px solid #888;
+  width: 100%;
+  max-width: 500px;
+  color: black;
+  font-size: 10px;
+  max-height: 70vh;
+
+
+} 
+
+
+
+
+input[type="comments"],.status-select 
+ {
+  width: 75%; /* Adjust the width as needed */
+ /* Adjust the padding as needed */
+  font-size: 10px; /* Adjust the font size as needed */
+  border: 1px solid #ced4da; /* Adjust the border color as needed */
+  border-radius: 0.25rem; /* Adjust the border radius as needed */
+  font-family: 'Poppins';
+  margin-bottom: 20px;
+  margin-top: 10px;
+
+}
+button[type="submit"] {
+  background-color: rgb(35, 31, 32); 
+  color: #fff;
+  border-radius: 5px;
+  width: 50px;
+  height: 30px;
+ 
+  cursor: pointer;
+  font-size: 10px;
+ 
+}
+}
+@media screen and (max-width: 344px) {
+
+  .status {
+    position: absolute;
+    right: 0%;
+  }
+  
+  .status-filter {
+    padding: 4px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    width:70px;
+    top: 0;
+   
+   
+    
+  }
+  
+  .label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0;
+   margin-top: 0;
+   padding-top: 0;
+   font-size: 10px;
+    color: #fcf7f7; /* Text color */
+  }
+  
+  
+  .status-filter:focus {
+    border-color: #007bff; /* Focus color */
+  }
+  
+
+  input[type="text"] {
+    flex: 1;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  
+    font-size: 12px;
+    width: 100px;
+    font-family: 'Poppins';
+    padding-left: 25px;
+    
+  
+  }
+
+  h2 {
+    font-family: 'Poppins';
+    color: #ffffff;
+    font-size: 20px;
+  }
+  table {
+    font-family: 'Poppins';
+    border-collapse: collapse;
+    width: 98%; /* Adjusted width to account for padding */
+    margin-left: 1%; /* Adjusted margin-left */
+    overflow-y: auto;
+    font-size: 10px;
+  }
+
+
+.edit{
+  background-color:#fff;
+  flex: 1;
+        padding: 4px;
+        
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 5px;
+        margin-left: 5px;
+        font-size: 10px;
+        width: 110px;
+        font-family: 'Poppins';
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 50% auto;
+  
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90%;
+  max-width: 500px;
+  color: black;
+  font-size: 10px;
+
+
+}
+.modal-content1 {
+  background-color: #fefefe;
+  
+  padding: 20px;
+  border: 1px solid #888;
+  width: 100%;
+  max-width: 500px;
+  color: black;
+  font-size: 10px;
+  max-height: 70vh;
+
+
+} 
+input[type="comments"],.status-select 
+ {
+  width: 70%; /* Adjust the width as needed */
+ /* Adjust the padding as needed */
+  font-size: 10px; /* Adjust the font size as needed */
+  border: 1px solid #ced4da; /* Adjust the border color as needed */
+  border-radius: 0.25rem; /* Adjust the border radius as needed */
+  font-family: 'Poppins';
+  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-left: 10px;
+
+  
+
+}
+button[type="submit"] {
+  background-color: rgb(35, 31, 32); 
+  color: #fff;
+  border-radius: 5px;
+  width: 45px;
+  height: 25px;
+ 
+  cursor: pointer;
+  font-size: 8px;
+ 
+}
+  
+.label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0;
+ margin-top: 0;
+ padding-top: 0;
+ padding-right: 10px;
+
+ font-size: 10px;
+  color: #fcf7f7; /* Text color */
+}
+
+}
+
+
+.popup-table tbody td{
+
+  color: #000000;
+ }
+ .popup-table thead th{
+ 
+   color: #ffffff;
+   text-align: center;
+   align-items: center;
+   justify-content: space-between;
+   
+ }
+  
+ 
+ .popup-table tbody tr:hover {
+   background-color: rgb(35, 31, 32);
+ }
+ 
+ .popup-table tbody tr:hover td {
+   color: #fff9f9;
+ }
+/* Popup styles */
+#popup {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: auto;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+.modal-content-popup {
+  background-color: #fefefe;
+  margin: 5% auto; /* Adjusted margin for smaller devices */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90%; /* Use more width on smaller screens */
+  max-width: 800px; /* Limit max width for larger screens */
+  color: black;
+}
+
+.modal-content1-popup1 {
+  background-color: #ffffff;
+  margin: 5% auto; /* Adjusted margin for smaller devices */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 95%; /* Use more width on smaller screens */
+  color: black;
+}
+
+/* Gallery styles */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
+  gap: 10px; /* Space between images */
+}
+
+.gallery-item {
+  overflow: hidden;
+  border: 1px solid #ddd; /* Optional border */
+  border-radius: 5px; /* Optional rounded corners */
+  transition: transform 0.2s; /* Optional hover effect */
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+}
+
+.gallery-item:hover {
+  transform: scale(1.05); /* Optional hover effect to enlarge */
+}
+
+/* Full-screen modal styles */
+.full-screen-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000; /* Ensure it's on top */
+}
+
+.full-screen-image {
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  display: block; /* Center the image */
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #ffffff;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.close1 {
+  position: absolute;
+  top: 14px;
+  right: 30px;
+  color: #ffffff;
+  font-size: 40px;
+  cursor: pointer;
+}

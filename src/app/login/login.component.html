@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!-- Source Codes By CodingNepal - www.codingnepalweb.com -->
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Login Form in HTML and CSS | CodingNepal</title>
+</head>
+<body>
+    <app-navbar></app-navbar>
+
+
+  <div class="login_form" *ngIf="!verifyOtp">
+    <!-- Login form container -->
+    <form action="#" method="POST">
+        <h3>Sign In</h3>
+
+    
+
+      <!-- Email input box -->
+      <div class="input_box">
+        <label for="email">
+         
+          <i class="fas fa-envelope" style="margin-left: 10px;"></i> Email
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="identifier"
+          placeholder="Enter email address"
+          required
+          [(ngModel)]="loginForm.identifier"
+        />
+      </div>
+
+      <div class="input_box">
+        <div class="password_title">
+          <label for="password">    <i
+            class="fas"
+            [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"
+            (click)="togglePasswordVisibility()"
+            style="cursor: pointer; margin-left: 10px;"
+            title="{{ showPassword ? 'Hide password' : 'Show password' }}"
+          ></i>  Password</label>
+        </div>
+      
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          id="password"
+          placeholder="Enter your password"
+          required
+          name="password"
+          [(ngModel)]="loginForm.password"
+        />
+     
+      </div>
+      
+
+      <button type="submit" (click)="login($event)" [disabled]="loading">
+        <ng-container *ngIf="loading; else loginText">
+          <div class="loader"></div> <!-- Simple loader -->
+        </ng-container>
+        <ng-template #loginText>Login</ng-template>
+      </button>
+      
+
+    </form>
+  </div>
+
+  <div *ngIf="verifyOtp">
+    <div class="login_form">
+      <!-- OTP form container -->
+      <form action="#" method="POST">
+        <h3>Enter OTP Code</h3>
+        <i class="fas fa-arrow-left back-icon" (click)="goBackToLogin()"></i>
+  
+        <!-- OTP input box -->
+        <div class="input_box">
+          <label for="otp">OTP</label>
+          <input type="text" id="otp" name="otp" placeholder="Enter OTP here" required [(ngModel)]="loginForm.otp" />
+        </div>
+  
+        <div class="resend-otp">
+            <ng-container *ngIf="resendDisabled; else resendLink">
+              <span>Resend OTP in {{ countdown }} seconds</span>
+            </ng-container>
+            <ng-template #resendLink>
+              <a href="#" (click)="resendOtp($event)">Resend OTP</a>
+            </ng-template>
+          </div>
+        <!-- Verify OTP button -->
+        <button (click)="verifyOTP($event)">Verify OTP</button>
+  
+      </form>
+    </div>
+  </div>
+  
+
+</body>
+</html>

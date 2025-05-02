@@ -1,0 +1,279 @@
+<div class="min-h-screen bg-gray-50 p-6 font-poppins">
+  <div class="max-w-6xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+    <!-- Header -->
+    <div class="bg-[rgb(35,31,32)] p-6">
+      <h1 class="text-3xl font-bold text-white">Complaint Registration</h1>
+      <p class="text-[#ed1b24] mt-1">Please fill out the form below to register your complaint</p>
+    </div>
+
+    <!-- Form Content -->
+    <div class="p-8">
+      <!-- Personal Details -->
+      <section class="mb-10">
+        <h2 class="text-2xl font-semibold text-[rgb(35,31,32)] relative pb-2 mb-6 after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-[#ed1b24]">
+          Personal Details
+        </h2>
+        <form class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div>
+            <label for="mobile" class="block mb-2 font-medium text-[rgb(35,31,32)]">Mobile <span class="text-[#ed1b24]">*</span></label>
+            <input id="mobile" type="tel" placeholder="+1 234 567 8901" required
+              class="w-full border-2 border-[rgb(35,31,32)] rounded-lg px-4 py-3 placeholder-[rgb(35,31,32,0.6)] focus:outline-none focus:ring-2 focus:ring-[#ed1b24] focus:border-transparent transition" />
+          </div>
+          
+          <div class="relative">
+            <label for="iamA" class="block mb-2 font-medium text-[rgb(35,31,32)]">I am A <span class="text-[#ed1b24]">*</span></label>
+            <select id="iamA" required
+              class="w-full border-2 border-[rgb(35,31,32)] rounded-lg px-4 py-3 bg-white appearance-none focus:outline-none focus:ring-2 focus:ring-[#ed1b24] focus:border-transparent transition">
+              <option value="" disabled selected>Select</option>
+              <option>Customer</option>
+              <option>Distributor</option>
+              <option>Retailer</option>
+              <option>Other</option>
+            </select>
+            <div class="pointer-events-none absolute right-4 top-[3.3rem] text-[#ed1b24]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
+          
+          <div>
+            <label for="email" class="block mb-2 font-medium text-[rgb(35,31,32)]">Email <span class="text-[#ed1b24]">*</span></label>
+            <input id="email" type="email" placeholder="email@example.com" required
+              class="w-full border-2 border-[rgb(35,31,32)] rounded-lg px-4 py-3 placeholder-[rgb(35,31,32,0.6)] focus:outline-none focus:ring-2 focus:ring-[#ed1b24] focus:border-transparent transition" />
+          </div>
+          
+          <div>
+            <label for="distributorName" class="block mb-2 font-medium text-[rgb(35,31,32)]">Distributor Name</label>
+            <input id="distributorName" type="text" placeholder="Distributor Name"
+              class="w-full border-2 border-[rgb(35,31,32)] rounded-lg px-4 py-3 placeholder-[rgb(35,31,32,0.6)] focus:outline-none focus:ring-2 focus:ring-[#ed1b24] focus:border-transparent transition" />
+          </div>
+          
+          <div>
+            <label for="contactPersonName" class="block mb-2 font-medium text-[rgb(35,31,32)]">Contact Person Name</label>
+            <input id="contactPersonName" type="text" placeholder="Contact Person Name"
+              class="w-full border-2 border-[rgb(35,31,32)] rounded-lg px-4 py-3 placeholder-[rgb(35,31,32,0.6)] focus:outline-none focus:ring-2 focus:ring-[#ed1b24] focus:border-transparent transition" />
+          </div>
+        </form>
+      </section>
+
+      <!-- Location -->
+      <section class="mb-10">
+        <h2 class="text-2xl font-semibold text-[rgb(35,31,32)] relative pb-2 mb-6 after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-[#ed1b24]">
+          Location
+        </h2>
+        <form class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div>
+            <label for="state" class="block mb-2 font-medium text-[rgb(35,31,32)]">State <span class="text-[#ed1b24]">*</span></label>
+            <input id="state" type="text" placeholder="State" required
+              class="w-full border-2 border-[rgb(35,31,32)] rounded-lg px-4 py-3 placeholder-[rgb(35,31,32,0.6)] focus:outline-none focus:ring-2 focus:ring-[#ed1b24] focus:border-transparent transition" />
+          </div>
+          
+          <div>
+            <label for="city" class="block mb-2 font-medium text-[rgb(35,31,32)]">City <span class="text-[#ed1b24]">*</span></label>
+            <input id="city" type="text" placeholder="City" required
+              class="w-full border-2 border-[rgb(35,31,32)] rounded-lg px-4 py-3 placeholder-[rgb(35,31,32,0.6)] focus:outline-none focus:ring-2 focus:ring-[#ed1b24] focus:border-transparent transition" />
+          </div>
+          
+          <div>
+            <label for="area" class="block mb-2 font-medium text-[rgb(35,31,32)]">Area <span class="text-[#ed1b24]">*</span></label>
+            <input id="area" type="text" placeholder="Area" required
+              class="w-full border-2 border-[rgb(35,31,32)] rounded-lg px-4 py-3 placeholder-[rgb(35,31,32,0.6)] focus:outline-none focus:ring-2 focus:ring-[#ed1b24] focus:border-transparent transition" />
+          </div>
+        </form>
+      </section>
+
+      <!-- Purchase Info -->
+      <section class="mb-10">
+        <h2 class="text-2xl font-semibold text-[rgb(35,31,32)] relative pb-2 mb-6 after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-[#ed1b24]">
+          Purchase Info & Details
+        </h2>
+        <form class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div>
+            <label for="companyCategory" class="block mb-2 font-medium text-[rgb(35,31,32)]">Company Category <span class="text-[#ed1b24]">*</span></label>
+            <input id="companyCategory" type="text" placeholder="Company Category" required
+              class="w-full border-2 border-[rgb(35,31,32)] rounded-lg px-4 py-3 placeholder-[rgb(35,31,32,0.6)] focus:outline-none focus:ring-2 focus:ring-[#ed1b24] focus:border-transparent transition" />
+          </div>
+          
+          <div>
+            <label for="purchasedFrom" class="block mb-2 font-medium text-[rgb(35,31,32)]">Purchased From <span class="text-[#ed1b24]">*</span></label>
+            <input id="purchasedFrom" type="text" placeholder="Purchased From" required
+              class="w-full border-2 border-[rgb(35,31,32)] rounded-lg px-4 py-3 placeholder-[rgb(35,31,32,0.6)] focus:outline-none focus:ring-2 focus:ring-[#ed1b24] focus:border-transparent transition" />
+          </div>
+          
+          <div>
+            <label for="invoiceNumber" class="block mb-2 font-medium text-[rgb(35,31,32)]">Invoice Number <span class="text-[#ed1b24]">*</span></label>
+            <input id="invoiceNumber" type="text" placeholder="Invoice Number" required
+              class="w-full border-2 border-[rgb(35,31,32)] rounded-lg px-4 py-3 placeholder-[rgb(35,31,32,0.6)] focus:outline-none focus:ring-2 focus:ring-[#ed1b24] focus:border-transparent transition" />
+          </div>
+        </form>
+      </section>
+
+      <!-- Products & Complaint Details -->
+      <section class="mb-10">
+        <h2 class="text-2xl font-semibold text-[rgb(35,31,32)] relative pb-2 mb-6 after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-[#ed1b24]">
+          Products & Complaint Details
+        </h2>
+        
+        <form class="grid grid-cols-1 md:grid-cols-6 gap-4 items-end mb-6">
+          <div class="md:col-span-2">
+            <label for="product" class="block mb-2 font-medium text-[rgb(35,31,32)]">Select Product <span class="text-[#ed1b24]">*</span></label>
+            <div class="relative">
+              <select id="product" required
+                class="w-full border-2 border-[rgb(35,31,32)] rounded-lg px-4 py-3 bg-white appearance-none focus:outline-none focus:ring-2 focus:ring-[#ed1b24] focus:border-transparent transition">
+                <option value="" disabled selected>Select Product</option>
+                <option>Product A</option>
+                <option>Product B</option>
+                <option>Product C</option>
+              </select>
+              <div class="pointer-events-none absolute right-4 top-[3.3rem] text-[#ed1b24]">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <label for="quantity" class="block mb-2 font-medium text-[rgb(35,31,32)]">Quantity <span class="text-[#ed1b24]">*</span></label>
+            <input id="quantity" type="number" min="1" placeholder="Qty" required
+              class="w-full border-2 border-[rgb(35,31,32)] rounded-lg px-4 py-3 placeholder-[rgb(35,31,32,0.6)] focus:outline-none focus:ring-2 focus:ring-[#ed1b24] focus:border-transparent transition" />
+          </div>
+          
+          <div>
+            <label for="quantityType" class="block mb-2 font-medium text-[rgb(35,31,32)]">Type <span class="text-[#ed1b24]">*</span></label>
+            <div class="relative">
+              <select id="quantityType" required
+                class="w-full border-2 border-[rgb(35,31,32)] rounded-lg px-4 py-3 bg-white appearance-none focus:outline-none focus:ring-2 focus:ring-[#ed1b24] focus:border-transparent transition">
+                <option value="" disabled selected>Select</option>
+                <option>Pieces</option>
+                <option>Boxes</option>
+                <option>Kilograms</option>
+                <option>Liters</option>
+              </select>
+              <div class="pointer-events-none absolute right-4 top-[3.3rem] text-[#ed1b24]">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          
+          <div class="md:col-span-2">
+            <label for="complaintType" class="block mb-2 font-medium text-[rgb(35,31,32)]">Complaint Type <span class="text-[#ed1b24]">*</span></label>
+            <div class="relative">
+              <select id="complaintType" required
+                class="w-full border-2 border-[rgb(35,31,32)] rounded-lg px-4 py-3 bg-white appearance-none focus:outline-none focus:ring-2 focus:ring-[#ed1b24] focus:border-transparent transition">
+                <option value="" disabled selected>Select Complaint</option>
+                <option>Damaged</option>
+                <option>Not Working</option>
+                <option>Missing Parts</option>
+                <option>Late Delivery</option>
+              </select>
+              <div class="pointer-events-none absolute right-4 top-[3.3rem] text-[#ed1b24]">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          
+          <div class="md:col-span-3">
+            <label for="uploadDocuments" class="block mb-2 font-medium text-[rgb(35,31,32)]">Upload Documents</label>
+            <div class="flex items-center gap-2">
+              <input id="uploadDocuments" type="file"
+                class="w-full text-[rgb(35,31,32)] border-2 border-[rgb(35,31,32)] rounded-lg px-3 py-2 file:bg-[#ed1b24] file:text-white file:font-semibold file:px-4 file:py-2 file:rounded-md file:border-0 cursor-pointer transition hover:file:bg-[#bb1a1e] focus:outline-none focus:ring-2 focus:ring-[#ed1b24] focus:border-transparent" />
+            </div>
+          </div>
+          
+          <div class="md:col-span-3">
+            <button type="button"
+              class="w-full bg-[#ed1b24] text-white font-semibold py-3 px-4 rounded-lg shadow-md hover:bg-[#bb1a1e] focus:outline-none focus:ring-2 focus:ring-[#ed1b24] focus:ring-offset-2 transition">
+              <div class="flex items-center justify-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
+                Add Product
+              </div>
+            </button>
+          </div>
+        </form>
+
+        <!-- Table: Added Products -->
+        <div class="overflow-x-auto rounded-lg border-2 border-[rgb(35,31,32)] shadow-sm">
+          <table class="w-full">
+            <thead class="bg-[#ed1b24] text-white">
+              <tr>
+                <th class="py-4 px-6 font-semibold text-left">Product</th>
+                <th class="py-4 px-6 font-semibold text-center">Quantity</th>
+                <th class="py-4 px-6 font-semibold text-center">Type</th>
+                <th class="py-4 px-6 font-semibold text-left">Complaint</th>
+                <th class="py-4 px-6 font-semibold text-left">Documents</th>
+                <th class="py-4 px-6 font-semibold text-center">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[rgb(35,31,32,0.2)]">
+              <tr class="hover:bg-gray-50 transition">
+                <td class="py-4 px-6 text-[rgb(35,31,32)] font-medium">Product A</td>
+                <td class="py-4 px-6 text-[rgb(35,31,32)] text-center">10</td>
+                <td class="py-4 px-6 text-[rgb(35,31,32)] text-center">Pieces</td>
+                <td class="py-4 px-6 text-[rgb(35,31,32)]">Damaged</td>
+                <td class="py-4 px-6 text-[rgb(35,31,32)]">
+                  <span class="inline-flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#ed1b24]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                    invoice.pdf
+                  </span>
+                </td>
+                <td class="py-4 px-6 text-center">
+                  <button class="text-[#ed1b24] hover:text-[#bb1a1e] font-semibold transition flex items-center justify-center gap-1 mx-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                    Remove
+                  </button>
+                </td>
+              </tr>
+              <tr class="hover:bg-gray-50 transition">
+                <td class="py-4 px-6 text-[rgb(35,31,32)] font-medium">Product B</td>
+                <td class="py-4 px-6 text-[rgb(35,31,32)] text-center">5</td>
+                <td class="py-4 px-6 text-[rgb(35,31,32)] text-center">Boxes</td>
+                <td class="py-4 px-6 text-[rgb(35,31,32)]">Not Working</td>
+                <td class="py-4 px-6 text-[rgb(35,31,32)]">-</td>
+                <td class="py-4 px-6 text-center">
+                  <button class="text-[#ed1b24] hover:text-[#bb1a1e] font-semibold transition flex items-center justify-center gap-1 mx-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                    Remove
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Comments & Submit Section -->
+      <section class="mb-6">
+        <h2 class="text-2xl font-semibold text-[rgb(35,31,32)] relative pb-2 mb-4 after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-[#ed1b24]">
+          Comments
+        </h2>
+        <textarea rows="4" placeholder="Enter your comments here..."
+          class="w-full border-2 border-[rgb(35,31,32)] rounded-lg px-4 py-3 resize-y placeholder-[rgb(35,31,32,0.6)] focus:outline-none focus:ring-2 focus:ring-[#ed1b24] focus:border-transparent transition"></textarea>
+      </section>
+
+      <section class="flex justify-between items-center pt-4 border-t-2 border-[rgb(35,31,32,0.2)]">
+        <button type="button"
+          class="border-2 border-[rgb(35,31,32)] text-[rgb(35,31,32)] font-semibold py-3 px-8 rounded-lg hover:bg-[rgb(35,31,32,0.1)] transition focus:outline-none focus:ring-2 focus:ring-[rgb(35,31,32)] focus:ring-offset-2">
+          Cancel
+        </button>
+        <button type="submit"
+          class="bg-[#ed1b24] text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-[#bb1a1e] transition focus:outline-none focus:ring-2 focus:ring-[#ed1b24] focus:ring-offset-2">
+          Submit Complaint
+        </button>
+      </section>
+    </div>
+  </div>
+</div>  

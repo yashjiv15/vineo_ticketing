@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+   <title>Ticket's Report</title>
+</head>
+
+<body>
+  <div class="container">
+  
+    <h2 class="heading">Ticket's History</h2>
+    <br>  
+ 
+    <div class="search-filter-container">
+    
+      <div class="search-container">
+        <i class="fa fa-search"></i>
+
+           <input id="myInput" type="text" placeholder="Search ..." class="form-control" [(ngModel)]="inputValue" (keyup)="filterTable()">
+      </div>  
+       <!-- 
+         <div class="status">
+            <span class="label" >Current Status</span>
+       <select class="status-filter" [(ngModel)]="ticket_details.status" (change)="filterByStatus()"  #statusSelect="ngModel">
+        
+        <option value="">Filter by Status</option>
+        <option value="">Show All</option>
+        <option *ngFor="let status of statusOptions" [value]="status">{{ status }}</option>
+      </select>       <button type="submit" class="btn btn-black" (click)="saveStatus(ticket_details.ticket_id)" [disabled]="statusSelect.pristine">Update</button>
+    </div>-->
+    
+    </div><br><br> 
+    <div>
+      <div class="table-container">
+        <table class="table table-hover">
+         
+         
+            <thead>
+           
+              <tr >
+                    <th class="product-details"  colspan="2" >Ticket Details</th>
+                 
+                    <th  colspan="3" class="product-details">Company Details</th>
+                 
+                       
+                
+                   
+                    <th class="product-details"  colspan="3">Product Details</th>
+                    <th class="product-details">Ticket Status</th>
+                    <th colspan="4" class="product-details">Action</th>
+                   
+                    </tr>
+                <tr>
+                    <th class="product-details">Ticket Id</th>
+                    <th class="product-details">Complaint Type</th>
+                    <th class="product-details" *ngIf="company_type !== 'Customer'">Name</th>
+                    <th class="product-details"  *ngIf="company_type === 'Customer'">Invoice Date</th>
+                    <th class="product-details">Category</th>
+                    <th class="product-details">Type</th>
+                    <th class="product-details">Name</th>
+                    <th class="product-details">Quantity</th>
+                    <th class="product-details">Invoice no</th>
+                    <th class="product-details">Status</th>
+                    <th class="product-details">View Comments</th>
+                    <th class="product-details">View Documents</th> 
+
+
+                 <!--
+                    <th>Comments</th>
+                    <th>Last Commented at</th>
+                    <th>Owned By</th>
+                -->
+                    <th class="product-details">Update Comments</th>
+                   
+                </tr>
+            </thead>
+            <tbody id="myTable" class="table-body">
+                <ng-container *ngFor="let product of ticket_details.product_name; let i = index">
+                  <tr>
+
+                        <td>{{ ticket_details.ticket_id }}</td>
+                        <td>{{ ticket_details.complaint_type[i] }}</td>
+                        <td *ngIf="company_type !== 'Customer'" >{{ ticket_details.company_name }}</td>
+                        <td  *ngIf="company_type === 'Customer'" >{{ticket_details.invoice_date}}</td>
+                        <td>{{ ticket_details.company_category }}</td>
+                        <td>{{ ticket_details.company_type }}</td>
+                        <td>{{ product }}</td>
+                        <td>{{ ticket_details.quantity[i] }} {{ ticket_details.quantity_type[i] }}</td>
+                        <td>{{ ticket_details.invoice_number }}</td>
+                        <td>{{ i === 0 ? ticket_details.status : '' }}</td>
+                        <!-- 
+                        <td>
+                            <ng-container *ngFor="let comment of splitComments(ticket_details.comments)">
+                              Display comments only if they belong to the current product
+                              <ng-container *ngIf="comment.product_name === product">
+                                {{ comment.comment  || 'N/a'  }}<br>
+                              </ng-container>
+                            </ng-container>
+                          </td> 
+                          
+                          
+
+                        <td>{{ ticket_details.updated_at[0] || 'N/a' }}</td>
+                        <td>{{ splitUpdatedBy(ticket_details.updated_by)[0]  || 'N/a' }}</td>
+                     -->
+                        <td>
+                          <button class="edit" (click)="openTicketDetails(ticket.ticket_id,product)">View</button>
+
+                          
+                        </td>
+                    <!-- Show 'View Documents' button only in the first row -->
+        <td>
+          <button *ngIf="i === 0" class="edit" (click)="openViewDocuments(ticket.ticket_id, product)">View</button>
+        </td>
+                        <td>
+                        <button class="edit" (click)="openEditPopup(ticket_details, i)">Update</button>
+                        </td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+  </div>
+      <!-- Add the following code inside your HTML file -->
+      <div id="editPopup" class="modal">
+        <div class="modal-content">
+          <form (ngSubmit)="!isCommentBlank() && saveTicketStatus()">
+            <div class="form-group">
+              <label for="comments">Comments:</label>
+              <input type="text" name="comments" [(ngModel)]="editedTicket.comments" required>
+            </div>
+            <div class="button-group">
+              <button type="submit" class="btn btn-black">Save</button>
+              <button type="button" class="btn btn-black" (click)="closeEditPopup()">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div id="popup" class="modal" *ngIf="popupVisible">
+        <div class="modal-content">
+          <table class="table popup-table">
+            <thead>
+              <tr>
+                <th>Product Name</th>
+                <th >Comments</th>
+                <th>Last Commented at</th>
+                <th >Commented By</th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let product of ticket_details.product_name; let i = index">
+                <ng-container *ngFor="let comment of splitComments(ticket_details.comments)">
+                  <!-- Display comments only if they belong to the current product -->
+                  <ng-container *ngIf="comment.product_name === product">
+                    <tr *ngIf="selectedProductName === product || !selectedProductName">
+                  <td>{{ product }}</td>
+                  <td>
+                   
+                        {{ comment.comment }} <br>
+                 
+                     
+                  </td>
+                  
+                  <td> {{ comment.updated_at }} </td>
+
+                  <td>{{ comment.updated_by.replace(' None', '') }}</td>
+
+                </tr>
+                
+              </ng-container>
+            </ng-container>
+          </ng-container>
+            </tbody>
+          </table>
+          <div class="button-group">
+            <button type="button" class="btn btn-black" (click)="closePopup()">Cancel</button>
+  
+          
+          </div>
+        </div>
+       
+      </div>
+      <div id="popup1" class="modal1" *ngIf="documentPopupVisible"> 
+        <div class="modal-content1">
+          <h2 class="heading" style="color: black;">Document's List</h2>
+          <!-- <span class="close" (click)="closePopup()">&times; </span> -->
+
+          <div class="gallery">
+            <ng-container *ngFor="let document of ticket_details.images">
+              <div class="gallery-item">
+                <!-- Check if the document is an image -->
+                <ng-container *ngIf="isImage(document); else pdfLink">
+                  <img [src]="document" alt="Document Image" (click)="openFullScreen(document)" />
+                </ng-container>
+                <ng-template #pdfLink>
+                  <a [href]="document" target="_blank" class="pdf-link">Open PDF Document</a>
+                </ng-template>
+              </div>
+            </ng-container>
+          </div>
+          <div class="button-group">
+            <button type="button" class="btn btn-black" (click)="closePopup()">Cancel</button>
+          </div>
+        </div>
+      </div>
+      
+      
+      <!-- Full-screen modal -->
+      <div id="fullScreenModal" class="full-screen-modal" *ngIf="fullScreenVisible">
+     
+        <span class="close" (click)="closeFullScreen()">  <span style="font-size: 20px;" class="close1" >Close</span>&times; </span>
+       
+
+        <img class="full-screen-image" [src]="fullScreenImage" alt="Full Screen Image" />
+      </div>
+      <div class="button-group">
+       
+      </div>
+    </div>
+<app-navbar></app-navbar>
+</body>
+</html>

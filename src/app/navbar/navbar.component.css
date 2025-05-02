@@ -1,0 +1,458 @@
+
+
+.navbar {
+background-color: rgb(35, 31, 32); 
+width: 100%;
+height: 64px;
+position: fixed;
+top: 0;
+margin: 0;
+padding: 0;
+display: flex;
+align-items: center;
+z-index: 1000; /* Ensure the navbar stays on top of all other elements */
+
+}
+
+
+
+
+h2 {
+color: white;
+padding-left: 50px;
+padding-top: 10px;
+font-size: 25px;
+}
+
+.logo-img {
+  height: 64px;
+  width: 120px; /* Maintain aspect ratio */
+  margin-left: 85%;
+  position: fixed;
+
+}
+
+
+.logout-link {
+  color: white;
+  /* Change the color on hover */
+  text-decoration: none;
+  position: fixed;
+  width: 55px;
+  font-size: 30px;
+  padding: 5px 10px;
+  transition: .5s;
+  border-radius: 10px;
+  margin-left: 95%;
+  
+
+}
+
+.logout-link:hover {
+  color:  rgb(237, 28, 36);
+  /* Change the color on hover */
+  transition-delay: .1s;
+
+}
+.breadcrumb {
+  background-color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content:flex-start;
+  width: 300px;
+  margin-left: 5%;
+  position: fixed;
+}
+button[type="submit"] {
+  background-color: rgb(35, 31, 32); 
+  color: #fff;
+  border: none;
+  width: 250px;
+  height: 50px;
+  padding: 8px 15px;
+  cursor: pointer;
+   
+  font-size: 16px;
+ margin-left: 380px;
+ margin-top: 1.5%;
+position: fixed;   
+}
+
+
+
+.nav-heading1 {
+  background-color: rgb(35, 31, 32); 
+  color: #fff;
+  font-size: 16px;
+  box-shadow: 4px 4px 9px 16px rgba(255, 255, 255, 0.1);
+  font-weight: 700;
+  border-radius: 5px;
+  white-space: nowrap; /* Prevent text from wrapping */
+  text-decoration: none;
+ margin-left: 10%;
+ margin-right: 0;
+ position: fixed;   
+ padding: 15px 5px 15px 5px;
+
+}
+.nav-heading3 {
+  background-color: rgb(35, 31, 32); 
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 5px;
+  white-space: nowrap; /* Prevent text from wrapping */
+  text-decoration: none;
+ margin-left: 4%;
+ margin-right: 0;
+ position: fixed;   
+ padding: 15px 5px 15px 5px;
+
+}
+
+.nav-heading1:hover, .nav-heading3:hover {
+  background-color: rgb(255, 255, 255); 
+  color: #000000;
+  margin-right: 0;
+
+padding: 15px 5px 15px 5px;
+
+}
+
+
+.icon {
+  overflow: visible;
+  fill: rgb(0, 0, 0);
+  margin-right: 0;
+  padding-right: 0;
+  width: 20px;
+  height: 20px;
+
+}
+
+
+
+
+
+.nav-item {
+  display: flex; 
+   margin-right: 30px;
+    position: relative;
+    white-space: nowrap;
+    font-family: 'Poppins';
+
+  
+  }
+  
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    display: flex; 
+    white-space: nowrap;
+    padding-bottom: 5px; /* Add space for the bottom line */
+    font-family: 'Poppins';
+
+  }
+  
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; /* Height of the bottom line */
+    background-color: transparent; /* Initial color of the line */
+    transition: all 0.3s ease; /* Smooth transition effect */
+  }
+  
+  .nav-item.active .nav-link::after {
+    background-color: red; /* Color of the bottom line for active item */
+  }
+  
+  .nav-item.active .nav-link:hover::after {
+    background-color: red; /* Keep the color stable on hover for active item */
+  }
+  
+  .nav-link:hover::after {
+    background-color: red; /* Change color on hover for non-active items */
+  }
+  
+  
+.navbuttons{
+  margin-left: 5%;
+  display: flex;
+  font-family: 'Poppins';
+
+  white-space:  nowrap;
+}
+
+
+@media screen and (max-width: 1280px) {
+
+
+
+
+  .navbar {
+    background-color: rgb(35, 31, 32); 
+    width: 100%;
+    height: 64px;
+    position: fixed;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    }
+    
+    .logo-img {
+      height: 64px; /* Adjust the height as needed */
+      width: 120px; /* Maintain aspect ratio */
+      right: 100px;
+      position: fixed;
+    
+    }
+    
+    
+    .logout-link {
+      color: white;
+      /* Change the color on hover */
+      text-decoration: none;
+      position: fixed;
+      width: 55px;
+      font-size: 30px;
+      padding: 5px 10px;
+      transition: .5s;
+      border-radius: 10px;
+      right: 10px;
+      
+    
+    }
+    a{
+      font-size: 20px;
+    }
+    
+    .logout-link:hover {
+      color:  rgb(237, 28, 36);
+      /* Change the color on hover */
+      transition-delay: .1s;
+    
+    }
+  }
+    
+@media screen and (max-width: 759px) {
+
+
+
+
+  .navbar {
+    background-color: rgb(35, 31, 32); 
+    width: 100%;
+    height: 44px;
+    position: fixed;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    }
+    
+    .logo-img {
+      height: 44px; /* Adjust the height as needed */
+      width: 70px; /* Maintain aspect ratio */
+      margin-left: 70%;
+      position: fixed;
+    
+    }
+    
+    
+    .logout-link {
+      color: white;
+      /* Change the color on hover */
+      text-decoration: none;
+      position: fixed;
+      width: 55px;
+      font-size: 25px;
+      padding: 5px 10px;
+      transition: .5s;
+      border-radius: 10px;
+      margin-left: 88%;
+      
+    
+    }
+    
+    .logout-link:hover {
+      color:  rgb(237, 28, 36);
+      /* Change the color on hover */
+      transition-delay: .1s;
+    
+    }
+  
+  
+
+.nav-heading1 {
+  background-color: rgb(35, 31, 32); 
+  color: #fff;
+  font-size: 14px;
+  box-shadow: 4px 4px 9px 16px rgba(255, 255, 255, 0.1);
+  font-weight: 700;
+  border-radius: 5px;
+  white-space: nowrap; /* Prevent text from wrapping */
+  text-decoration: none;
+ margin-left: 10%;
+ margin-right: 0;
+ position: fixed;   
+ padding: 15px 5px 15px 5px;
+
+}
+.nav-heading3 {
+  background-color: rgb(35, 31, 32); 
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 5px;
+  white-space: nowrap; /* Prevent text from wrapping */
+  text-decoration: none;
+ margin-left: 4%;
+ margin-right: 0;
+ position: fixed;   
+ padding: 15px 5px 15px 5px;
+
+}
+a {
+ 
+  font-size: 12px;
+ 
+
+}
+}
+@media screen and (max-width: 360px) {
+
+
+
+
+  .navbar {
+    background-color: rgb(35, 31, 32); 
+    width: 100%;
+    height: 34px;
+    position: fixed;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    }
+    
+    .logo-img {
+      height: 34px; /* Adjust the height as needed */
+      width: 60px; /* Maintain aspect ratio */
+      margin-left: 65%;
+      position: fixed;
+    
+    }
+    
+    
+    .logout-link {
+      color: white;
+      /* Change the color on hover */
+      text-decoration: none;
+      position: fixed;
+      width: 55px;
+      font-size: 20px;
+      padding: 5px 10px;
+      transition: .5s;
+      border-radius: 10px;
+      margin-left: 88%;
+      
+    
+    }
+    
+    .logout-link:hover {
+      color:  rgb(237, 28, 36);
+      /* Change the color on hover */
+      transition-delay: .1s;
+    
+    }
+
+  
+
+a {
+ 
+  font-size: 10px;
+ 
+
+}
+
+}
+@media screen and (max-width: 430px) {
+
+
+
+
+  .navbar {
+    background-color: rgb(35, 31, 32); 
+    width: 100%;
+    height: 30px;
+    position: fixed;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    }
+    
+    .logo-img {
+      height: 30px; /* Adjust the height as needed */
+      width: 50px; /* Maintain aspect ratio */
+      right: 60px;
+      position: fixed;
+    
+    }
+    
+    
+    .logout-link {
+      color: white;
+      /* Change the color on hover */
+      text-decoration: none;
+      position: fixed;
+      width: 55px;
+      font-size: 15px;
+      padding: 5px 10px;
+      transition: .5s;
+      border-radius: 10px;
+      right: 0px;
+      
+    
+    }
+    
+    .logout-link:hover {
+      color:  rgb(237, 28, 36);
+      /* Change the color on hover */
+      transition-delay: .1s;
+    
+    }
+  
+  
+
+a {
+ 
+  font-size: 8px;
+ 
+
+}
+
+.nav-item {
+  display: flex; 
+   margin-right: 10px;
+    position: relative;
+    white-space: nowrap;
+    font-family: 'Poppins';
+
+  
+  }
+  
+
+}

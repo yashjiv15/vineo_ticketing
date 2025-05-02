@@ -1,0 +1,598 @@
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins';
+  
+}
+body{
+
+        background-color: #ffffff;
+        height: 100vh;
+        overflow: hidden;
+
+}
+h2 {
+  font-family: 'Poppins';
+  color: #ed1b24;
+  font-size: 30px;
+}
+.heading {
+  text-align: center; /* Center align the content */
+}
+
+
+input[type="comments"],.status-select 
+ {
+  width: 75%; /* Adjust the width as needed */
+  padding: 4px; /* Adjust the padding as needed */
+  font-size: 14px; /* Adjust the font size as needed */
+  border: 1px solid #ced4da; /* Adjust the border color as needed */
+  border-radius: 0.25rem; /* Adjust the border radius as needed */
+  font-family: 'Poppins';
+  margin-bottom: 20px;
+  margin-top: 10px;
+
+}
+
+/* Style for the option elements within the select */
+.status-select option {
+  padding: 1rem; /* Adjust the padding as needed */
+}
+
+
+ 
+.search-filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.status-filter {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+  transform: translate(-50%, -0%);
+  width: auto;
+  
+}
+.description-popup {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  display: flex;
+  justify-content: center; /* Center the popup content */
+  align-items: center; /* Center vertically */
+}
+
+.description-popup .popup-content {
+  position: relative;
+  padding: 20px;
+  background: white;
+  width: 50%;
+  max-width: 600px; /* Maximum width */
+  max-height: 80vh; /* Maximum height */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
+  overflow: hidden; /* Hide overflow of popup content */
+}
+
+.description-popup h2 {
+  margin-top: 0; /* Remove margin for a better look */
+}
+
+.description-popup .description-text {
+  max-height: 60vh; /* Limit height of text area */
+  overflow-y: auto; /* Enable vertical scrolling if overflow occurs */
+  overflow-x: hidden; /* Hide horizontal overflow */
+  margin: 10px 0; /* Margin around text */
+  white-space: pre-wrap; /* Maintain line breaks and whitespace */
+  word-wrap: break-word; /* Allow long words to break to the next line */
+}
+
+.description-popup .close-button {
+  cursor: pointer;
+  font-size: 24px; /* Close button size */
+  position: absolute;
+  top: 10px;
+  right: 15px; /* Position close button */
+  color: #555; /* Color for close button */
+}
+
+.status-filter:focus {
+  border-color: #ED1C24; /* Focus color */
+}
+.search-container {
+  position: relative;
+  width: auto;
+  border: 1px solid #231F20;
+
+  left: 50%;
+  transform: translate(-50%, -0%);
+}
+
+
+.search-container svg {
+  position: absolute;
+  margin-left: 2%;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: rgb(70, 68, 68);/* Set fill color for SVG */
+}
+
+.search-container i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: black;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+  font-size: 16px;
+  width: 500px;
+  font-family: 'Poppins';
+  padding-left: 50px;
+
+}
+
+
+.container {
+  height: 90vh;
+  width: 95vw;
+  border-radius: 10px;
+  position: fixed;
+  box-shadow: 4px 4px 9px 16px rgba(255, 255, 255, 0.1);
+  top: calc(50% + 30px); /* Assuming the height of your navbar is 45px */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+/* Hide the scrollbar track */
+.table-container::-webkit-scrollbar {
+  width: 5px; /* Set the width of the scrollbar */
+  border-radius: 15px; /* Set the border radius of the scrollbar thumb */
+
+}
+
+/* Style the scrollbar thumb */
+.table-container::-webkit-scrollbar-thumb {
+  background-color: #888; /* Set the color of the scrollbar thumb */
+  border-radius: 15px; /* Set the border radius of the scrollbar thumb */
+}
+
+/* Style the scrollbar track */
+.table-container::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Set the color of the scrollbar track */
+}
+
+
+thead {
+  position: sticky;
+  top: 0;
+ 
+}
+
+.table-container {
+  height: 70vh; /* Adjust height as needed */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+table {
+  font-family: 'Poppins';
+  border-collapse: collapse;
+  width: 98%; /* Adjusted width to account for padding */
+  margin-left: 1%; /* Adjusted margin-left */
+  overflow-y: auto;
+  background-color: #ed1b24;
+}
+
+td{
+  text-align: center;
+  padding: 8px;
+  color: #fff;
+  
+}
+th {
+  text-align: center;
+  padding: 8px;
+  background-color: rgb(35, 31, 32);
+  color: #fff;
+  overflow-y: auto;
+
+}
+
+  
+
+
+  
+.description{
+  width: 400px;
+  text-align: center;
+  padding: 8px;
+}
+table tr:hover {
+  background-color: rgb(35, 31, 32); 
+  cursor: pointer; /* Change cursor on hover */
+  color:#fff;
+}
+.edit{
+  background-color:#fff;
+  flex: 1;
+        padding: 4px;
+        
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 5px;
+        margin-left: 5px;
+        font-size: 14px;
+        width: 110px;
+        font-family: 'Poppins';
+}
+th.product-details {
+  border-left: 1px solid #ddd; /* Add left border for the "Product Details" heading */
+  border-right: 1px solid #ddd; /* Add right border for the "Company Details" heading */
+}
+
+/* Modal container */
+#editPopup {
+  display: none; /* Hide the modal by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  border-radius: 10px;
+  
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  border-radius: 10px;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  max-width: 550px;
+  color: black;
+  border-radius: 10px;
+
+}
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  float: right;
+  top: 0;
+}
+
+/* Overlay for the popup */
+#popupOverlay {
+  position: fixed; /* Fixed position to cover the entire screen */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex; /* Use flexbox to center the popup */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  z-index: 1000; /* Ensure it is above other content */
+}
+
+/* Popup content */
+.popup-content {
+  background-color: white; /* Background color for the popup */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  max-width: 90%; /* Maximum width of the popup */
+  width: 600px; /* Fixed width for the popup */
+  padding: 20px; /* Padding inside the popup */
+  overflow: auto; /* Allow scrolling if content overflows */
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Input fields */
+
+label {
+  display: inline-block;
+  width: 20%; /* Adjust the width as needed */
+  font-weight: bold;
+  margin-top: 10px;
+  font-family: 'Poppins';
+
+}
+
+.status-select {
+  width: 75%; /* Adjust the width as needed */
+  padding: 4px; /* Adjust the padding as needed */
+  font-size: 14px; /* Adjust the font size as needed */
+  border: 1px solid #ced4da; /* Adjust the border color as needed */
+  border-radius: 0.25rem; /* Adjust the border radius as needed */
+  font-family: 'Poppins';
+  margin-bottom: 20px;
+  margin-top: 10px;
+
+}
+
+/* Style for the option elements within the select */
+.status-select option {
+  padding: 1rem; /* Adjust the padding as needed */
+}
+.btn-black {
+  background-color: #000000; /* Black background */
+  color: #ffffff; /* White text color */
+  padding: 5px 10px; /* Adjust padding as needed */
+  border: none;
+  border-radius: 5px;
+  margin: 10px; /* Adjust margin as needed */
+}
+
+.btn-black:hover {
+  background-color: #333333; /* Darkened background on hover */
+}
+
+.button-group {
+  text-align: center; /* Center align the buttons */
+}
+ 
+th{
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd; /* Add bottom border for each row */
+}
+
+th.heading-separator {
+    border-right: 1px solid #ddd; /* Add right border for the heading separator */
+}
+
+/* Adjustments for smaller screens */
+@media screen and (max-width: 1280px) {
+
+  .form-wrapper {
+    padding-bottom: 0px; /* Adjust the value based on the height of your submit button */
+  }
+  input[type="comments"],.status-select 
+  {
+   width: 75%; /* Adjust the width as needed */
+   padding: 4px; /* Adjust the padding as needed */
+   font-size: 14px; /* Adjust the font size as needed */
+   border: 1px solid #ced4da; /* Adjust the border color as needed */
+   border-radius: 0.25rem; /* Adjust the border radius as needed */
+   font-family: 'Poppins';
+   margin-bottom: 20px;
+   margin-top: 10px;
+ 
+ }
+  
+  .container {
+    max-width: 90vw;
+    height: auto;
+    width: auto;
+    border-radius: 10px;
+    position: fixed;
+    box-shadow: 4px 4px 9px 16px rgba(255, 255, 255, 0.1);
+  
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow-y: hidden;
+    min-width: 95vw; 
+    overflow-x: hidden;
+    min-height: 500px;
+
+  }
+  .table-container {
+    max-height: 65vh; /* Adjust height as needed */
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+  
+  
+  table {
+    font-family: 'Poppins';
+    border-collapse: collapse;
+    width: 98%; /* Adjusted width to account for padding */
+    margin-left: 1%; /* Adjusted margin-left */
+    overflow-y: auto;
+    font-size: 12px;
+  }
+  .modal-content {
+    background-color: #fefefe;
+    margin: 50% auto;
+    
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 500px;
+    color: black;
+    font-size: 12px; 
+  
+  }
+  .status-select {
+    width: 75%; /* Adjust the width as needed */
+    padding: 4px; /* Adjust the padding as needed */
+    font-size: 12px; /* Adjust the font size as needed */
+    border: 1px solid #ced4da; /* Adjust the border color as needed */
+    border-radius: 0.25rem; /* Adjust the border radius as needed */
+    font-family: 'Poppins';
+    margin-bottom: 20px;
+    margin-top: 10px;
+  
+  }
+  .search-container {
+    position: relative;
+    width: 10px;
+    left: 2%;
+    font-size: 12px;
+  }
+  input[type="text"] {
+    flex: 1;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  
+    font-size: 12px;
+    width: 200px;
+    font-family: 'Poppins';
+    padding-left: 50px;
+  
+  }
+  .status-filter {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    transform: translate(-0%, -0%);
+    width: auto;
+    font-size: 12px;
+    margin-right: 10px;
+    
+  }
+  .edit{
+    background-color:#fff;
+    flex: 1;
+          padding: 4px;
+          
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          margin-right: 5px;
+          margin-left: 5px;
+          font-size: 10px;
+          width: 110px;
+          font-family: 'Poppins';
+          font-size: 12px;
+  }
+  h2 {
+    font-family: 'Poppins';
+    color: #ffffff;
+    font-size: 25px;
+  }
+  
+}
+
+@media screen and (max-width: 360px) {
+  .search-container {
+    position: relative;
+    width: 10px;
+    left: 2%;
+  }
+  input[type="comments"],.status-select 
+ {
+  width: 75%; /* Adjust the width as needed */
+  padding: 4px; /* Adjust the padding as needed */
+  padding-left: 5px;
+  font-size: 10px; /* Adjust the font size as needed */
+  border: 1px solid #ced4da; /* Adjust the border color as needed */
+  border-radius: 0.25rem; /* Adjust the border radius as needed */
+  font-family: 'Poppins';
+  margin-bottom: 20px;
+  margin-top: 10px;
+
+}
+  input[type="text"] {
+    flex: 1;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  
+    font-size: 12px;
+    width: 120px;
+    font-family: 'Poppins';
+    padding-left: 50px;
+  
+  }
+  .status-filter {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    transform: translate(-0%, -0%);
+    width: 100px;
+    font-size: 12px;
+    
+  }
+  h2 {
+    font-family: 'Poppins';
+    color: #ffffff;
+    font-size: 20px;
+  }
+  table {
+    font-family: 'Poppins';
+    border-collapse: collapse;
+    width: 98%; /* Adjusted width to account for padding */
+    margin-left: 1%; /* Adjusted margin-left */
+    overflow-y: auto;
+    font-size: 10px;
+  }
+
+
+.edit{
+  background-color:#fff;
+  flex: 1;
+        padding: 4px;
+        
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 5px;
+        margin-left: 5px;
+        font-size: 10px;
+        width: 110px;
+        font-family: 'Poppins';
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 50% auto;
+  
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90%;
+  max-width: 500px;
+  color: black;
+  font-size: 10px;
+
+
+}
+.status-select {
+  width: 75%; /* Adjust the width as needed */
+  padding: 4px; /* Adjust the padding as needed */
+  font-size: 10px; /* Adjust the font size as needed */
+  border: 1px solid #ced4da; /* Adjust the border color as needed */
+  border-radius: 0.25rem; /* Adjust the border radius as needed */
+  font-family: 'Poppins';
+  margin-bottom: 20px;
+  margin-top: 10px;
+
+}
+
+}
