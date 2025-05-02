@@ -1,28 +1,63 @@
+<!-- navbar.component.html -->
 <nav class="bg-[rgb(35,31,32)] text-white font-poppins shadow-md">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
-      
-      <!-- Breadcrumb menu -->
+      <!-- Left section - Breadcrumbs and Logo -->
       <div class="flex items-center space-x-4">
-        <span class="text-sm text-gray-300">Dashboard</span>
-        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
-        <span class="text-sm text-white font-medium">User Form</span>
+        <!-- Company Logo -->
+        <div class="flex-shrink-0 flex items-center">
+          <div class="h-8 w-auto rounded-full bg-[#ed1b24] flex items-center justify-center text-white font-bold">
+            <span class="text-sm">      <img src="assets/milex_logo.jpg" alt="Company Logo" class="h-10 w-auto" />
+            </span>
+          </div>
+        </div>
+        
+        <!-- Breadcrumbs -->
+        <div class="hidden md:block">
+          <ol class="flex items-center space-x-2">
+            <li>
+              <div class="flex items-center">
+                <a href="#" class="text-gray-300 hover:text-white text-sm font-medium transition">Home</a>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center">
+                <svg class="flex-shrink-0 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                </svg>
+                <a href="#" class="ml-2 text-gray-300 hover:text-white text-sm font-medium transition">Complaints</a>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center">
+                <svg class="flex-shrink-0 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span class="ml-2 text-sm font-medium text-white">New Complaint</span>
+              </div>
+            </li>
+          </ol>
+        </div>
       </div>
 
-      <!-- Right section: Logo + Logout -->
-      <div class="flex items-center space-x-6">
-        <!-- Company Logo -->
-        <img src="assets/milex_logo.jpg" alt="Company Logo" class="h-8 w-auto" />
-
+      <!-- Right section - User and Logout -->
+      <div class="flex items-center space-x-4">
+        <!-- User Profile -->
+        <div class="flex items-center">
+          <div class="h-8 w-8 rounded-full bg-gray-600 flex items-center justify-center text-white">
+            <span class="text-xs">JD</span>
+          </div>
+          <span class="ml-2 text-sm font-medium hidden md:block">John Doe</span>
+        </div>
+        
         <!-- Logout Button -->
-        <button
-          class="bg-[#ed1b24] hover:bg-red-700 transition-colors text-white px-4 py-2 rounded-lg text-sm font-medium">
-          Logout
+        <button class="p-1 rounded-full text-gray-300 hover:text-white hover:bg-[#ed1b24] focus:outline-none focus:ring-2 focus:ring-white transition">
+          <span class="sr-only">Logout</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+          </svg>
         </button>
       </div>
-
     </div>
   </div>
 </nav>
